@@ -45,6 +45,7 @@ class Solution {
         // 인덱스를 찾아내야 한다. 이때 그냥 탐색하면 안되고
         // 혹시 같은 숫자가 두개가 있을 수 있으므로 왼쪽에서 오른쪽으로
         // 오른쪽에서 왼쪽으로 탐색을 두번해야한다.
+        // test
         for(int i = 0; i < nums.length; i++){
             if(numsOrigin[i] == nums[left])
                 answer[0] = i;
