@@ -15,45 +15,23 @@ class Solution {
         // answer = Math.max(nums[nums.length-1] + 1 - start, answer);
         // return answer;
 
-        // if(nums.length ==0) return 0;
-        // int answer = 1, count = 1;
-        // Map<Integer, Integer> hashTable = new HashMap<>();
-        // for(int num : nums){
-        //     hashTable.put(num, 1);
-        // }
-        // for(int num: nums){
-        //     if(!hashTable.containsKey(num-1)){
-        //         count = 1;
-        //         while(hashTable.containsKey(num+1)){
-        //             num++;
-        //             count++;
-        //         }
-        //         answer = Math.max(answer, count);
-        //     }
-        // }
-        // return answer;
-
-        HashSet<Integer> arr = new HashSet<>();
-        for (int num : nums) {
-            arr.add(num);
+        if(nums.length ==0) return 0;
+        int answer = 1, count = 1;
+        Map<Integer, Integer> hashTable = new HashMap<>();
+        for(int num : nums){
+            hashTable.put(num, 1);
         }
-        
-        int maxx = 0;
-        
-        for (int i : nums) {
-            int x = i - 1;
-            int curr = 0;
-            
-            if (!arr.contains(x)) {
-                while (arr.contains(x + 1)) {
-                    curr += 1;
-                    x += 1;
+        for(int num: nums){
+            if(!hashTable.containsKey(num-1)){
+                count = 1;
+                while(hashTable.containsKey(num+1)){
+                    num++;
+                    count++;
                 }
-                
-                maxx = Math.max(maxx, curr);
+                answer = Math.max(answer, count);
             }
         }
-        
-        return maxx;
+        return answer;
+
     }
 }
