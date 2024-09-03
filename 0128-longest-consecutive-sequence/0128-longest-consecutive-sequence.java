@@ -21,7 +21,7 @@ class Solution {
         for(int num : nums){
             hashTable.put(num, 1);
         }
-        for(int num: nums){
+        for(int num: hashTable.keysets()){
             if(!hashTable.containsKey(num-1)){
                 count = 1;
                 while(hashTable.containsKey(num+1)){
